@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+<body>
+    <div>
+        Id: <input type="text"  data-bind="value: _id" readonly>
+        Username: <input type="text" data-bind="value: username">
+        First name: <input type="text" data-bind="value: firstName">
+    </div>
+
+    <hr>
+
+    <button id="btnList">Click to get all</button>
+    <button id="btnSave">Click to save current</button>
+    <button id="btnDelete">Click to delete current</button>
+
+    <hr>
+
+    <table cellpadding="5">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>First Name</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: list">
+            <tr>
+                <td data-bind="text: _id"></td>
+                <td data-bind="text: username"></td>
+                <td data-bind="text: firstName"></td>
+                <td>
+                    <button type="button" class="load" data-bind="attr: { id: _id }">Load</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+    <script src="knockrest.js"></script>
+    <script type="text/javascript">
+        var myViewModel = {
+            _id: ko.observable(''),
+            username: ko.observable(''),
+            firstName: ko.observable(''),
+            list: ko.observableArray([])
+        };
+
+        ko.applyBindings(myViewModel);
+
+        var kr = new KnockRest('http://localhost:3000/api/users', myViewModel, '_id');
+
+        $('#btnList').click(function() {
+            kr.list();
+        });
+
+        $('#btnSave').click(function() {
+            kr.save();
+        });
+
+        $('#btnDelete').click(function() {
+            kr.delete();
+        });
+
+        $('body').on('click', '.load', function() {
+            kr.get($(this).attr('id'));
+        });
+    </script>
+</body>
+
+</html>
