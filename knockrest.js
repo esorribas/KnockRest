@@ -1,6 +1,6 @@
 // KnockRest Library 0.1
 // Helps to interact with a REST API and update the changes
-// automatically in your Knockout model files.
+// automatically in your Knockout model objects.
 // endpoint: the base of your API
 // model: your instance of Knockout model
 // idField: the name of your model primary key
