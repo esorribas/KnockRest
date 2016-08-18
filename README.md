@@ -1,5 +1,6 @@
 # KnockRest
 ###A simple Knockout REST library for CRUD operations
+###Made with Knockout.js and jQuery
 
 ####How to use it:
 
