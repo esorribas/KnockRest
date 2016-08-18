@@ -79,7 +79,7 @@ var KnockRest = function(endpoint, model, idField) {
                 }
             }
 
-            // Get all models again
+            // Get all objects
             self.list();
         }
     };
