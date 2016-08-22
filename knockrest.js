@@ -8,7 +8,7 @@ var KnockRest = function(endpoint, model, idField) {
     var self = this;
 
     // Gets a model by an id
-    self.get = function(id, callback) {
+    self.get = function(id) {
         // Populate the id field to generate the endpoint
         self.setId(id);
 
@@ -19,7 +19,7 @@ var KnockRest = function(endpoint, model, idField) {
     };
 
     // Gets all your objects
-    self.list = function(callback) {
+    self.list = function() {
         $.getJSON(endpoint, function(data) {
             //Check if exists the observableArray "list" to populate it
             if ($.isFunction(model.list)) {
