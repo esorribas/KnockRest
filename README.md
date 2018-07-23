@@ -1,10 +1,10 @@
 # KnockRest
-###A simple Knockout REST library for CRUD operations
-###Made with Knockout.js and jQuery
+### A simple Knockout REST library for CRUD operations
+### Made with Knockout.js and jQuery
 
-####How to use it:
+#### How to use it:
 
-######1) Create a Knockout model:
+###### 1) Create a Knockout model:
 
 ```javascript
 var myViewModel = {
@@ -19,13 +19,13 @@ ko.applyBindings(myViewModel);
 
 We need to create a dummy "list" observableArray attribute to fetch all objects from API
 
-######2) Configure your KnockRest object:
+###### 2) Configure your KnockRest object:
 
 ```javascript
 var kr = new KnockRest('http://localhost:3000/api/users', myViewModel, '_id');
 ```
 
-######3) Attach event handlers:
+###### 3) Attach event handlers:
 
 ```javascript
 $('#btnList').click(function() {
